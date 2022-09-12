@@ -1,19 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from 'react-dom/client';
+import './'
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar'
+import { ThemeProvider } from '@mui/material/styles';
+import { darkTheme } from './theme/index'
+// const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true);
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+  // console.log({isSidebarOpen});
+  // console.log({setSidebarOpen});
 root.render(
   <React.StrictMode>
-    <App />
+     <ThemeProvider theme={darkTheme}>
+      <Navbar/>
+      <App />
+      <Sidebar/>
+      </ThemeProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
