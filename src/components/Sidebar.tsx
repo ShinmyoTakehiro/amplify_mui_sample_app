@@ -1,6 +1,15 @@
 import React from 'react'
-export default function sidebar() {
+type props = {
+    close: () => void
+    openFlg:boolean
+}
+const Sidebar: React.FC<props> = props => {
+    const style: React.CSSProperties = {display: props.openFlg ? 'block' : 'none' }
     return (
-        <h1>サイドバー</h1>
+        <div style={ style }>
+        <button onClick={props.close}>test</button>
+            <h1>サイドバー</h1>
+            </div>
     )
 }
+export default Sidebar

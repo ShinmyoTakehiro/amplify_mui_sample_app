@@ -7,10 +7,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-export const Navbar =() =>{
-  const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true);
-  console.log({isSidebarOpen});
-  console.log({setSidebarOpen});
+interface NavProps{
+  open:()=>void
+}
+const Navbar:React.FC<NavProps> = props =>{
+
   
   return (
    
@@ -23,8 +24,11 @@ export const Navbar =() =>{
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+           
           >
-            <MenuIcon />
+            <MenuIcon
+              onClick={props.open}
+            />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             dashboard
