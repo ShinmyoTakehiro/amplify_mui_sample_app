@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 interface NavProps {
 	open: () => void;
+	openFlg: boolean;
 }
 const Navbar: React.FC<NavProps> = (props) => {
 	return (

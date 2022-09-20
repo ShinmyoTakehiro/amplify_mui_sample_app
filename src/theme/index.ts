@@ -7,7 +7,41 @@ export const darkTheme = createTheme({
       light: '#828DF8',
       dark: '#3832A0',
       contrastText: '#FFFFFF'
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '*': {
+          boxSizing: 'border-box',
+          margin: 0,
+          padding: 0
         },
+        html: {
+          MozOsxFontSmoothing: 'grayscale',
+          WebkitFontSmoothing: 'antialiased',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100%',
+          width: '100%'
+        },
+        body: {
+          display: 'flex',
+          flex: '1 1 auto',
+          flexDirection: 'column',
+          minHeight: '100%',
+          width: '100%',
+          margin:0,
+        },
+        '#__next': {
+          display: 'flex',
+          flex: '1 1 auto',
+          flexDirection: 'column',
+          height: '100%',
+          width: '100%'
+        }
+      }
+    }
   },
   typography: {
     button: {
