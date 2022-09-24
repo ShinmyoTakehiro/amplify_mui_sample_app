@@ -5,7 +5,9 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { Box, Container, Grid } from "@mui/material";
-import Budget from "./components/Budget";
+import Budget from "./components/Card-sm";
+import { BudgetObject } from "./types/index";
+import { Chart } from "./components/Chart";
 // function App() {
 //   return (
 //     <div className="App">
@@ -13,19 +15,42 @@ import Budget from "./components/Budget";
 //   );
 // }
 const App: React.FC = () => {
-	// const todos = [{ id:'t1',text:'typescriptコースサンプルS'}]
+	const budgetObject: BudgetObject[] = [
+		{
+			title: "BUDGET",
+			money: 24,
+			percent: 10,
+			caption: "since last month",
+			icon: "MoneyIcon",
+			iconColor: "error.main",
+		},
+		{
+			title: "BUDGET2",
+			money: 13,
+			percent: 80,
+			caption: "since last month2",
+			icon: "user",
+			iconColor: "success.main",
+		},
+		{
+			title: "BUDGET3",
+			money: 15,
+			percent: 20,
+			caption: "since last month3",
+			icon: "battery",
+			iconColor: "warning.main",
+		},
+	];
 	const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true);
-	console.log({ isSidebarOpen });
-	console.log({ setSidebarOpen });
-	//   const [todos,setTodos] = useState<todo[]>([])
-	const todoAddHandler = (text: string) => {
-		// setTodos(prevTodo=>[...prevTodo,{id:Math.random().toString(),text:text}])
-		console.log({ text });
-	};
-	const todoDeleteHandler = (todoId: string) => {
-		// setTodos(prevTodo =>prevTodo.filter(todo=>todo.id !== todoId))
-	};
-	const width: React.CSSProperties = {
+
+	// const todoAddHandler = (text: string) => {
+	// 	// setTodos(prevTodo=>[...prevTodo,{id:Math.random().toString(),text:text}])
+	// 	console.log({ text });
+	// };
+	// const todoDeleteHandler = (todoId: string) => {
+	// 	// setTodos(prevTodo =>prevTodo.filter(todo=>todo.id !== todoId))
+	// };
+	const width = {
 		width: isSidebarOpen ? "calc(100% - 280px)" : "100%",
 	};
 	return (
@@ -47,38 +72,23 @@ const App: React.FC = () => {
 				>
 					<Container maxWidth={false}>
 						<Grid container spacing={3}>
-							<Grid item lg={3} sm={6} xl={3} xs={12}>
-								<Budget />
-								{/* <h1>テスト項目</h1> */}
-							</Grid>
-							<Grid item xl={3} lg={3} sm={6} xs={12}>
-								{/* <TotalCustomers /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item xl={3} lg={3} sm={6} xs={12}>
-								{/* <TasksProgress /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item xl={3} lg={3} sm={6} xs={12}>
-								{/* <TotalProfit sx={{ height: "100%" }} /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item lg={8} md={12} xl={9} xs={12}>
-								{/* <Sales /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item lg={4} md={6} xl={3} xs={12}>
-								{/* <TrafficByDevice sx={{ height: "100%" }} /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item lg={4} md={6} xl={3} xs={12}>
-								{/* <LatestProducts sx={{ height: "100%" }} /> */}
-								<h1>テスト項目</h1>
-							</Grid>
-							<Grid item lg={8} md={12} xl={9} xs={12}>
-								{/* <LatestOrders /> */}
-								<h1>テスト項目</h1>
-							</Grid>
+							{budgetObject.map((item) => {
+								return (
+									<Grid item lg={4} sm={6} xl={4} xs={12}>
+										<Budget
+											title={item.title}
+											money={item.money}
+											percent={item.percent}
+											caption={item.caption}
+											icon={item.icon}
+											iconColor={item.iconColor}
+										/>
+									</Grid>
+								);
+							})}
+						</Grid>
+						<Grid item lg={8} md={12} xl={9} xs={12}>
+							<Chart />
 						</Grid>
 					</Container>
 				</Box>

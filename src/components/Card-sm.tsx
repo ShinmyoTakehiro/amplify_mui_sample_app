@@ -7,30 +7,57 @@ import {
 	Typography,
 } from "@mui/material";
 import MoneyIcon from "@mui/icons-material/Money";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BatteryCharging60OutlinedIcon from "@mui/icons-material/BatteryCharging60Outlined";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { BudgetObject } from "../types/index";
+const Budget = (props: BudgetObject) => {
+	let icon;
+	let arrow;
+	let HiLow;
+	switch (props.icon) {
+		case "MoneyIcon":
+			icon = <MoneyIcon />;
+			break;
+		case "user":
+			icon = <AccountCircleOutlinedIcon />;
+			break;
+		case "battery":
+			icon = <BatteryCharging60OutlinedIcon />;
+			break;
 
-const Budget = () => {
+		default:
+			break;
+	}
+	if (props.percent >= 50) {
+		arrow = <ArrowDownwardIcon color="error" />;
+		HiLow = "error";
+	} else {
+		arrow = <ArrowUpwardIcon color="success" />;
+		HiLow = "success";
+	}
 	return (
 		<Card sx={{ height: "100%" }}>
 			<CardContent>
 				<Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
 					<Grid item>
 						<Typography color="textSecondary" gutterBottom variant="overline">
-							BUDGET
+							{props.title}
 						</Typography>
 						<Typography color="textPrimary" variant="h4">
-							$24k
+							${props.money}k
 						</Typography>
 					</Grid>
 					<Grid item>
 						<Avatar
 							sx={{
-								backgroundColor: "error.main",
+								backgroundColor: props.iconColor,
 								height: 56,
 								width: 56,
 							}}
 						>
-							<MoneyIcon />
+							{icon}
 						</Avatar>
 					</Grid>
 				</Grid>
@@ -41,18 +68,18 @@ const Budget = () => {
 						alignItems: "center",
 					}}
 				>
-					<ArrowDownwardIcon color="error" />
+					{arrow}
 					<Typography
-						color="error"
+						color={HiLow}
 						sx={{
 							mr: 1,
 						}}
 						variant="body2"
 					>
-						12%
+						{props.percent}%
 					</Typography>
 					<Typography color="textSecondary" variant="caption">
-						Since last month
+						{props.caption}
 					</Typography>
 				</Box>
 			</CardContent>
