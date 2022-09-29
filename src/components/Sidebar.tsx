@@ -4,6 +4,8 @@ import BarChartSharpIcon from "@mui/icons-material/BarChartSharp";
 import AndroidIcon from "@mui/icons-material/Android";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import CloseIcon from "@mui/icons-material/Close";
+import ViewTimelineOutlinedIcon from "@mui/icons-material/ViewTimelineOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import NavItem from "./Nav-item";
 type props = {
 	close: () => void;
@@ -21,40 +23,15 @@ const Sidebar: React.FC<props> = (props) => {
 			title: "Dashboard",
 		},
 		{
-			href: "/customers",
-			icon: <BarChartSharpIcon fontSize="small" />,
-			title: "Customers",
+			href: "/timeline",
+			icon: <ViewTimelineOutlinedIcon fontSize="small" />,
+			title: "TimeLine",
 		},
 		{
-			href: "/products",
-			icon: <BarChartSharpIcon fontSize="small" />,
-			title: "Products",
+			href: "/calendar",
+			icon: <CalendarMonthOutlinedIcon fontSize="small" />,
+			title: "Calendar",
 		},
-		//   {
-		//     href: '/account',
-		//     icon: (<UserIcon fontSize="small" />),
-		//     title: 'Account'
-		//   },
-		//   {
-		//     href: '/settings',
-		//     icon: (<CogIcon fontSize="small" />),
-		//     title: 'Settings'
-		//   },
-		//   {
-		//     href: '/login',
-		//     icon: (<LockIcon fontSize="small" />),
-		//     title: 'Login'
-		//   },
-		//   {
-		//     href: '/register',
-		//     icon: (<UserAddIcon fontSize="small" />),
-		//     title: 'Register'
-		//   },
-		//   {
-		//     href: '/404',
-		//     icon: (<XCircleIcon fontSize="small" />),
-		//     title: 'Error'
-		//   }
 	];
 	return (
 		<Drawer
@@ -156,7 +133,7 @@ const Sidebar: React.FC<props> = (props) => {
 						<NavItem
 							key={item.title}
 							icon={item.icon}
-							//   href={item.href}
+							href={item.href}
 							title={item.title}
 						/>
 					))}

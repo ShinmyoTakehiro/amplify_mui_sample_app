@@ -5,7 +5,6 @@ import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "./theme/index";
-import { Router } from "./router/router";
 // const [isSidebarOpen, setSidebarOpen] = useState<boolean>(true);
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -15,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<ThemeProvider theme={darkTheme}>
-			<Router />
+			<App />
 		</ThemeProvider>
 	</React.StrictMode>
 );

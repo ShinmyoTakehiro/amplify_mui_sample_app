@@ -14,3 +14,12 @@ export type TabPanelProps = {
 	index: number;
 	value: number;
 };
+
+// タイムラインリスト用オブジェクト
+export type TimeLineObject = {
+  avatar: string,
+  name: string,
+  title: string,
+  detail: string,
+  dateTime:Date
+}
