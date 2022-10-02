@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
 		},
 	];
 	return (
-		<Container maxWidth={false}>
+		<Container maxWidth={false} sx={{ py: 8 }}>
 			<Grid container spacing={3} sx={{ mb: 5 }}>
 				{budgetObject.map((item) => {
 					return (

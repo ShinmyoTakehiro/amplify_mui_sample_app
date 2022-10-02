@@ -44,7 +44,6 @@ const App: React.FC = () => {
 					component="main"
 					sx={{
 						flexGrow: 1,
-						py: 8,
 					}}
 				>
 					<Routes>
