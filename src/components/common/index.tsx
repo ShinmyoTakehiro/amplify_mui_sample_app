@@ -25,3 +25,9 @@ export const formatDate = (date: Date) => {
 	const day = date.getDate().toString().padStart(2, "0");
 	return `${year}/${month}/${day}`;
 };
+// [スケジュール]連番表示関数
+let eventGuid = 0;
+export const createEventId = () => String(eventGuid++);
+
+// [スケジュール]現在日付取得処理
+export const todayStr = new Date().toISOString().replace(/T.*$/, "");

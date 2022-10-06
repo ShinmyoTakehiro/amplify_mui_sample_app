@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/dashboard";
 import TimeLine from "./pages/timeline";
+import Calendar from "./pages/calendar";
 import { Box } from "@mui/material";
 
 // function App() {
@@ -49,6 +50,7 @@ const App: React.FC = () => {
 					<Routes>
 						<Route index element={<Dashboard />} />
 						<Route path="/timeline" element={<TimeLine />} />
+						<Route path="/calendar" element={<Calendar />} />
 					</Routes>
 				</Box>
 			</Box>
